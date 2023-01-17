@@ -61,8 +61,7 @@ const students = [
   },
 ];
 
-const candidates = students.filter(student => {
-  let strongSkills = student.skills.filter(skills => skills.yrsExperience >= 5);
-  return strongSkills.length > 0;
-} )
+const has5YearsExp = skills => skills.yrsExperience >= 5;
+const hasStrongSkills = student => student.skills.filter(has5YearsExp).length > 0;
+const candidates = students.filter(hasStrongSkills)
 console.log(candidates);
